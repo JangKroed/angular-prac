@@ -3,27 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { SectionComponent } from './section/section.component';
-import { TimeDisplayComponent } from './section/time-display/time-display.component';
-import { ButtonsComponent } from './section/buttons/buttons.component';
+import { LayoutModule } from './layout/layout.module';
+import { SectionModule } from './section/section.module';
 
 // 모듈은 독립적인 박스
 @NgModule({
+  // 모듈이 컴포넌트를 사용한다고 선언, 컴포넌트는 하나의 모듈에만 속할 수 있다.
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    SectionComponent,
-    TimeDisplayComponent,
-    ButtonsComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, LayoutModule, SectionModule],
   providers: [],
-  bootstrap: [AppComponent]
+  exports: [AppComponent],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -6,10 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./section.component.scss']
 })
 export class SectionComponent {
-  present: string = 'welcome';
-
-  startTime($event: string){
-    this.present = $event;
-  }
 
 }
