@@ -9,7 +9,6 @@ import { PageToggleService } from 'src/app/share/page-toggle.service';
   //   PageToggleService
   // ]
 })
-
 export class TimeDisplayComponent implements OnInit {
   @Input() declare inputData: string;
 
@@ -19,9 +18,8 @@ export class TimeDisplayComponent implements OnInit {
 
   declare timeInterval: any;
 
-  constructor(
-    // public pageToggleService: PageToggleService
-  ) {
+  constructor() // public pageToggleService: PageToggleService
+  {
     // setInterval(() => {
     //   this.test++;
     // }, 1000);
@@ -34,11 +32,12 @@ export class TimeDisplayComponent implements OnInit {
     this.timeStop();
     this.timeInterval = setInterval(() => {
       this.ms++;
-      if (this.ms === 100) {
+      if (this.ms >= 100) {
         this.ms = 0;
         this.sec++;
       }
-      if (this.sec === 60) {
+
+      if (this.sec >= 60) {
         this.sec = 0;
         this.min++;
       }
@@ -78,5 +77,38 @@ export class TimeDisplayComponent implements OnInit {
   //   }
   // }
 
-  ngOnInit() {}
+  // 속성 바인딩, 부모로부터 받은 값이 변화가 이뤄질때 실행
+  ngOnChanges(changes: SimpleChanges) {
+    console.log('ng on chages');
+    for (let propName in changes) {
+      /*let chng = changes[promName]; 
+      let cur = JSON.stringify(chag.currentValue);
+      let prev = JSON.stringify(chag.previousValue);
+      this.changeLog.push(`propName: currentValue = cur, previousValue = prev`)*/
+    }
+  }
+  // 컴포넌트가 생성될때, constructor말고 여기서 사용. Start ?
+  ngOnInit() {
+    console.log('ng on init');
+  }
+  // 컴포넌트 내 데이터가 바뀔때 호출됨. Update ?
+  ngDoCheck() {
+    console.log('ng do check');
+  }
+  // 
+  ngAfterContentInit() {
+    console.log('ng after content init');
+  }
+  ngAfterContentChecked() {
+    console.log('ng after content checked');
+  }
+  ngAfterViewInit() {
+    console.log('ng after view init');
+  }
+  ngAfterViewChecked() {
+    console.log('ng after view checked');
+  }
+  ngOnDestroy() {
+    console.log('destroy!');
+  }
 }

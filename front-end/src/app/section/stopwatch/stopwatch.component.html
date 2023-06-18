@@ -1,24 +1,20 @@
 <div class="title">
-    <div class="display">
-        <app-time-display [inputData]="present"></app-time-display>
+  <div class="display">
+    <app-time-display [inputData]="present">
+        <!-- 컨텐트가 바뀌는 시점 -->
+        <h1>
+            룰루랄라
+        </h1>
+    </app-time-display>
 
-        <!-- <app-buttons (clickEvent)="startTime($event)"></app-buttons>
+    <!-- <app-buttons (clickEvent)="startTime($event)"></app-buttons>
 
         <hr>
 
         {{commandText}}
         <app-buttons (clickEvent)="commandText = $event"></app-buttons> -->
-    </div>
+        <button (click)="goClock()">시계로 이동</button>
+  </div>
 
-    <a [routerLink]="'/clock'">시계로 이동</a>
-
-    <button (click)="goClock()">
-        시계로 이동
-    </button>
-
-    <button (click)="pageToggleService.plusCount()">
-        숫자확인 테스트
-    </button>
-    {{pageToggleService.routingCount}}
-
+  <!-- <a [routerLink]="'/clock'">시계로 이동</a> -->
 </div>

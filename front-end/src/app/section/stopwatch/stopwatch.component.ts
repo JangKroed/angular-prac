@@ -26,4 +26,18 @@ export class StopwatchComponent {
   startTime($event: string) {
     this.present = $event;
   }
+
+  ngAfterContentInit() {
+    console.log('ng after content init');
+  }
+  ngAfterContentChecked() {
+    console.log('ng after content checked');
+  }
+  ngAfterViewInit() {
+    console.log('ng after view init');
+  }
+  ngAfterViewChecked() {
+    console.log('ng after view checked');
+  }
+  
 }
